@@ -8,7 +8,7 @@
     tools:context=".screens.profile.ProfileActivity">
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/fullName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -32,8 +32,8 @@
         android:textColor="#38465b"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/headshot"
-        app:layout_constraintStart_toStartOf="@+id/username"
-        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@+id/fullName"
+        app:layout_constraintTop_toBottomOf="@+id/fullName"
         tools:text="Melbourne, Australia" />
 
     <ImageView
@@ -55,7 +55,7 @@
         android:layout_marginTop="1dp"
         android:contentDescription="@string/settings_contentDescription"
         android:src="@drawable/ic_settings"
-        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@+id/fullName"
         app:layout_constraintTop_toBottomOf="@+id/headshot" />
 
     <ImageView
@@ -102,10 +102,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:layout_marginBottom="61dp"
+        android:contentDescription="@string/logo_contentDescription"
         android:src="@drawable/ic_openpay_brandmark_positive_rgb_copy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cards"
-        android:contentDescription="@string/logo_contentDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/cards" />
 </android.support.constraint.ConstraintLayout>

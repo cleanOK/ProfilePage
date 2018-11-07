@@ -4,4 +4,6 @@
     <string name="settings_contentDescription">Profile settings button</string>
     <string name="mobile_contentDescription">Profile mobile button</string>
     <string name="logo_contentDescription">Openpay logo</string>
+    <string name="full_name_format">%1$s %2$s</string>
+    <string name="location_format">%1$s, %2$s</string>
 </resources>

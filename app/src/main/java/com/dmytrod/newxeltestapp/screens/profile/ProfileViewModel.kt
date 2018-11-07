@@ -13,6 +13,8 @@ import io.reactivex.schedulers.Schedulers
 class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() {
     val profile = MutableLiveData<Profile>()
     val cards = MutableLiveData<Cards>()
+    val profileError = MutableLiveData<Boolean>()
+    val cardsError = MutableLiveData<Boolean>()
     private val disposables = CompositeDisposable()
 
     fun loadProfile() {
@@ -20,8 +22,14 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
             repository.getProfile()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe({ profile.value = it },
-                    { Log.e(LOG_TAG, "", it) })
+                .subscribe({
+                    profile.value = it
+                    profileError.value = false
+                },
+                    {
+                        Log.e(LOG_TAG, "Profile request failed", it)
+                        profileError.value = true
+                    })
         )
     }
 

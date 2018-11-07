@@ -6,4 +6,5 @@
     <string name="logo_contentDescription">Openpay logo</string>
     <string name="full_name_format">%1$s %2$s</string>
     <string name="location_format">%1$s, %2$s</string>
+    <string name="profile_error">Profile failed to load</string>
 </resources>

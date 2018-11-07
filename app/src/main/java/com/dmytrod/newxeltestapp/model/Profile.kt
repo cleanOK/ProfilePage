@@ -11,6 +11,6 @@ data class Profile(@SerializedName("firstName")
                    @SerializedName("location")
                    val location: Location?,
                    @SerializedName("avatar")
-                   val avatar: Avatar)
+                   val avatar: Avatar?)
 
 

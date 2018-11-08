@@ -27,6 +27,13 @@ class ProfileActivity : AppCompatActivity() {
         subscribeToViewModel(viewModel)
         viewModel.loadProfile()
         viewModel.loadCards()
+        settings.setOnClickListener {
+            //TODO
+        }
+        mobile.setOnClickListener {
+            //TODO
+        }
+
     }
 
     private fun subscribeToViewModel(viewModel: ProfileViewModel) {

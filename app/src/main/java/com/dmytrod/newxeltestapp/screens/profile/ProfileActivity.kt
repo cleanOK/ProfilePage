@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.PagerSnapHelper
-import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dmytrod.newxeltestapp.App
 import com.dmytrod.newxeltestapp.R
+import com.dmytrod.newxeltestapp.screens.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 import javax.inject.Inject
 
@@ -29,21 +29,24 @@ class ProfileActivity : AppCompatActivity() {
                 .appComponent((application as App).appComponent)
                 .build()
                 .inject(this)
-        cards.adapter = cardsAdapter
-        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        cards.layoutManager = linearLayoutManager
-        PagerSnapHelper().attachToRecyclerView(cards)
+        setupCardsRecyclerView()
         val viewModel = profileViewModelFactory.create(ProfileViewModel::class.java)
         subscribeToViewModel(viewModel)
         viewModel.loadProfile()
         viewModel.loadCards()
         settings.setOnClickListener {
-            //TODO
+            startActivity(SettingsActivity.createIntent(this))
         }
         mobile.setOnClickListener {
-            //TODO
+            Toast.makeText(this, R.string.mobile_message, Toast.LENGTH_SHORT).show()
         }
+    }
 
+    private fun setupCardsRecyclerView() {
+        cards.adapter = cardsAdapter
+        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        cards.layoutManager = linearLayoutManager
+        PagerSnapHelper().attachToRecyclerView(cards)
     }
 
     private fun subscribeToViewModel(viewModel: ProfileViewModel) {
@@ -63,6 +66,8 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.profileError.observe(this, Observer {
             if (it == true) Toast.makeText(this, R.string.profile_error, Toast.LENGTH_SHORT).show()
         })
-
+        viewModel.cardsError.observe(this, Observer {
+            if (it == true) Toast.makeText(this, R.string.cards_error, Toast.LENGTH_SHORT).show()
+        })
     }
 }

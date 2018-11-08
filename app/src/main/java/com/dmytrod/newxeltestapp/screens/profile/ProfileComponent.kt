@@ -5,10 +5,7 @@ import com.dmytrod.newxeltestapp.PerActivity
 import dagger.Component
 
 @PerActivity
-@Component(
-    dependencies = [AppComponent::class],
-    modules = [ProfileModule::class]
-)
+@Component(dependencies = [AppComponent::class])
 interface ProfileComponent {
     fun inject(activity: ProfileActivity)
 }

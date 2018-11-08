@@ -9,4 +9,5 @@
     <string name="profile_error">Profile failed to load</string>
     <string name="cards_error">Card fetching failed</string>
     <string name="mobile_message">Make a call</string>
+    <string name="settings_label">Settings</string>
 </resources>

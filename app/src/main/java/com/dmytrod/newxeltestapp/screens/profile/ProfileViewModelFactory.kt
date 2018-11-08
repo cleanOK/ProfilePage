@@ -6,7 +6,7 @@ import com.dmytrod.newxeltestapp.repositories.ProfileRepository
 import javax.inject.Inject
 
 class ProfileViewModelFactory @Inject constructor(private val profileRepository: ProfileRepository) :
-    ViewModelProvider.Factory {
+        ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass == ProfileViewModel::class.java) {

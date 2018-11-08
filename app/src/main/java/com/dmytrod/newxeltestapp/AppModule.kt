@@ -26,14 +26,14 @@ class AppModule {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         val okHttpBuilder = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
+                .addInterceptor(loggingInterceptor)
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://s3-ap-southeast-2.amazonaws.com/openpay-mobile-test/")
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpBuilder.build())
-            .build()
+                .baseUrl("https://s3-ap-southeast-2.amazonaws.com/openpay-mobile-test/")
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpBuilder.build())
+                .build()
         return retrofit.create(MobileTestService::class.java)
     }
 }
